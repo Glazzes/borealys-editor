@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {Dimensions, StyleSheet, View} from "react-native";
 import AceEditor from "react-ace";
 
@@ -14,33 +14,34 @@ import "ace-builds/src-noconflict/theme-xcode";
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-beautify";
 
-const {width, height} = Dimensions.get("window");
-
 type TextEditorProps = {
   mode: string;
+  code: string;
+  setCode: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const Editor: React.FC<TextEditorProps> = ({mode}) => {
-  const [code, setCode] = useState<string>("");
+const {height, width} = Dimensions.get("window");
 
+const Editor: React.FC<TextEditorProps> = ({mode, code, setCode}) => {
   return (
     <View style={styles.root}>
       <AceEditor
-        mode={mode}
+        mode={mode.toLocaleLowerCase()}
         theme={"gruvbox"}
         tabSize={4}
         value={code}
         onChange={(currentCode) => setCode(currentCode)}
-        width="100%"
-        height="100%"
         placeholder="Start coding!!!!"
         focus={true}
         showPrintMargin={false}
+        width="100%"
+        height="1000px"
+        style={{flex: 1}}
         setOptions={{
           enableLiveAutocompletion: true,
           enableBasicAutocompletion: true,
           showLineNumbers: true,
-          fontSize: 19,
+          fontSize: 20,
           animatedScroll: true,
           newLineMode: true,
           wrap: true,
@@ -50,10 +51,11 @@ const Editor: React.FC<TextEditorProps> = ({mode}) => {
   );
 };
 
-export default Editor;
+export default React.memo(Editor);
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
+    width,
+    height: height - 60,
   },
 });
