@@ -13,6 +13,7 @@
     "@types/fbemitter": "^2.0.32",
     "axios": "^0.24.0",
     "expo": "~44.0.0",
+    "expo-font": "~10.0.4",
     "expo-status-bar": "~1.2.0",
     "fbemitter": "^3.0.0",
     "native-base": "^3.2.2",
@@ -23,8 +24,7 @@
     "react-native-reanimated": "~2.3.1",
     "react-native-safe-area-context": "3.3.2",
     "react-native-svg": "12.1.1",
-    "react-native-web": "0.17.1",
-    "react-syntax-highlighter": "^15.4.5"
+    "react-native-web": "0.17.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

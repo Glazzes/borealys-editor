@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  editor:
+    image: glazzes/borealys-editor
+    container_name: editor
+    ports:
+      - 19006:19006
+    depends_on:
+      - borealys
+
+  borealys:
+    build: "."
+    container_name: borealys
+    ports:
+    - 5000:5000
+    cap_add:
+      - LINUX_IMMUTABLE
+    depends_on:
+      - cache
+
+  cache:
+    image: redis:6.2.4-alpine
+    container_name: cache

@@ -8,7 +8,7 @@ import "ace-builds/src-noconflict/mode-kotlin";
 import "ace-builds/src-noconflict/mode-golang";
 import "ace-builds/src-noconflict/mode-python";
 
-import "ace-builds/src-noconflict/theme-gruvbox";
+import "ace-builds/src-noconflict/theme-crimson_editor";
 import "ace-builds/src-noconflict/theme-xcode";
 
 import "ace-builds/src-noconflict/ext-language_tools";
@@ -22,12 +22,12 @@ type TextEditorProps = {
 
 const {height, width} = Dimensions.get("window");
 
-const Editor: React.FC<TextEditorProps> = ({mode, code, setCode}) => {
+const TextEditor: React.FC<TextEditorProps> = ({mode, code, setCode}) => {
   return (
     <View style={styles.root}>
       <AceEditor
         mode={mode.toLocaleLowerCase()}
-        theme={"gruvbox"}
+        theme={"xcode"}
         tabSize={4}
         value={code}
         onChange={(currentCode) => setCode(currentCode)}
@@ -51,7 +51,7 @@ const Editor: React.FC<TextEditorProps> = ({mode, code, setCode}) => {
   );
 };
 
-export default React.memo(Editor);
+export default React.memo(TextEditor);
 
 const styles = StyleSheet.create({
   root: {

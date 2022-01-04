@@ -1,9 +1,9 @@
 import axios from "axios";
 import {Text, IconButton, Select, useToast} from "native-base";
 import React, {useState, useEffect} from "react";
-import {Dimensions, StyleSheet, View, EventEmitter} from "react-native";
+import {Dimensions, StyleSheet, View} from "react-native";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
-import Editor from "./Editor";
+import Editor from "./TextEditor";
 import ResponseArea from "./Response";
 import {Language} from "./types/Language";
 import {emitter} from "./emitter";
